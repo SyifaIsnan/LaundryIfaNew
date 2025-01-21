@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,6 +89,12 @@
     <Compile Include="formutama.Designer.cs">
       <DependentUpon>formutama.cs</DependentUpon>
     </Compile>
+    <Compile Include="layanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="layanan.Designer.cs">
+      <DependentUpon>layanan.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +107,13 @@
     <Compile Include="order.Designer.cs">
       <DependentUpon>order.cs</DependentUpon>
     </Compile>
+    <Compile Include="pilihlayanan.cs" />
+    <Compile Include="print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="print.Designer.cs">
+      <DependentUpon>print.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,14 +123,38 @@
     <Compile Include="report.Designer.cs">
       <DependentUpon>report.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="biayatambahan.resx">
+      <DependentUpon>biayatambahan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datalayanan.resx">
+      <DependentUpon>datalayanan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datapelanggan.resx">
+      <DependentUpon>datapelanggan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="datapetugas.resx">
+      <DependentUpon>datapetugas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="datauser.resx">
       <DependentUpon>datauser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detailorder.resx">
+      <DependentUpon>detailorder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formutama.resx">
       <DependentUpon>formutama.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="layanan.resx">
+      <DependentUpon>layanan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="order.resx">
+      <DependentUpon>order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="print.resx">
+      <DependentUpon>print.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +165,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="report.resx">
+      <DependentUpon>report.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

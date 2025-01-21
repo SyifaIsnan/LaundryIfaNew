@@ -37,7 +37,7 @@ namespace LaundryIfaNew
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@namauser", textBox1.Text);
                     cmd.Parameters.AddWithValue("@email", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@password", Properti.enkripsi(textBox3.Text));
+                    cmd.Parameters.AddWithValue("@password", textBox3.Text);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Data berhasil ditambahkan!");
@@ -84,6 +84,88 @@ namespace LaundryIfaNew
             textBox1.Text = row["namauser"].Value.ToString();
             textBox2.Text = row["email"].Value.ToString();
             textBox3.Text = row["password"].Value.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Properti.validasi(this.Controls))
+                {
+                    MessageBox.Show("Data yang ingin diinput tidak boleh kosong!");
+                }
+                else
+                {
+                    var row = dataGridView1.CurrentRow;
+                    int kodeuser = Convert.ToInt32(row.Cells["kodeuser"].Value.ToString());
+                    SqlCommand cmd = new SqlCommand("update [User] set namauser=@namauser, email=@email, password=@password)", conn);
+                    conn.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@kodeuser", kodeuser);
+                    cmd.Parameters.AddWithValue("@namauser", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@email", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@password", textBox3.Text);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Data berhasil ditambahkan!");
+                    tampildata();
+                    clear();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

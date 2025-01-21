@@ -49,6 +49,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(190, 20);
             this.textBox3.TabIndex = 76;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -59,6 +60,7 @@
             this.label3.Size = new System.Drawing.Size(136, 28);
             this.label3.TabIndex = 75;
             this.label3.Text = "DATA USER";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -68,6 +70,7 @@
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 74;
             this.label1.Text = "Password";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button4
             // 
@@ -77,6 +80,7 @@
             this.button4.TabIndex = 73;
             this.button4.Text = "BERSIHKAN";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -86,6 +90,7 @@
             this.button3.TabIndex = 72;
             this.button3.Text = "HAPUS";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -95,6 +100,7 @@
             this.button2.TabIndex = 71;
             this.button2.Text = "UBAH";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -112,6 +118,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(190, 20);
             this.textBox2.TabIndex = 69;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -121,6 +128,7 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 68;
             this.label2.Text = "Nama";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
@@ -128,6 +136,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(190, 20);
             this.textBox1.TabIndex = 67;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
@@ -137,6 +146,7 @@
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 66;
             this.label9.Text = "Email ";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // dataGridView1
             // 
