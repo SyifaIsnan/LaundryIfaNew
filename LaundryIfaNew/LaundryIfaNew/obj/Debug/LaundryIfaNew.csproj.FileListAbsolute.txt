@@ -3,9 +3,9 @@ D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\bin\Debug\LaundryIfaNew.exe
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\bin\Debug\LaundryIfaNew.pdb
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.csproj.AssemblyReference.cache
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.csproj.SuggestedBindingRedirects.cache
-D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.Form1.resources
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.Properties.Resources.resources
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.csproj.GenerateResource.cache
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.csproj.CoreCompileInputs.cache
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.exe
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.pdb
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.login.resources

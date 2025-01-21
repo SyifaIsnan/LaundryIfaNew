@@ -11,20 +11,23 @@ using System.Windows.Forms;
 
 namespace LaundryIfaNew
 {
-    public partial class Form1 : Form
+    public partial class login : Form
     {
-        public Form1()
+        public login()
         {
             InitializeComponent();
         }
 
         SqlConnection conn = Properti.conn;
 
+
+        //untuk mengontrol visibilitas karakter textbox2 (bagian password)
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             textBox2.PasswordChar = checkBox1.Checked ? '\0' : '*';
         }
 
+        //untuk proses login ke halaman utama
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -38,6 +41,7 @@ namespace LaundryIfaNew
                     var mess = MessageBox.Show("Apakah data yang ingin diinput sudah benar?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (mess == DialogResult.Yes) {
                         SqlCommand cmd = new SqlCommand("select * from [User] where email = @email and password = @password", conn);
+                        conn.Open();
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddWithValue("@email", textBox1.Text);
                         cmd.Parameters.AddWithValue("@password", textBox2.Text);
@@ -46,15 +50,21 @@ namespace LaundryIfaNew
                         {
                             this.Hide();
                             string namauser = rd["namauser"].ToString();
-
+                            formutama u = new formutama(namauser);
+                            u.ShowDialog();
                         }
-                        
+                        else
+                        {
+                            MessageBox.Show("Data tidak ditemukan!");
+                        }
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
                     }   
                 }
             }
-            catch
+            catch (Exception ex) 
             {
-               
+               MessageBox.Show(ex.Message);
             }
         }
     }
