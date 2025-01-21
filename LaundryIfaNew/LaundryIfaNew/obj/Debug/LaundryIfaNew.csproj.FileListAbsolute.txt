@@ -9,3 +9,5 @@ D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.csp
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.exe
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.pdb
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.login.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.formutama.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.datauser.resources

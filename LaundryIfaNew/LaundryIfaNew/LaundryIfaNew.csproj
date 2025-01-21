@@ -46,6 +46,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="biayatambahan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="biayatambahan.Designer.cs">
+      <DependentUpon>biayatambahan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datalayanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datalayanan.Designer.cs">
+      <DependentUpon>datalayanan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datapelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datapelanggan.Designer.cs">
+      <DependentUpon>datapelanggan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datapetugas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datapetugas.Designer.cs">
+      <DependentUpon>datapetugas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="datauser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="datauser.Designer.cs">
+      <DependentUpon>datauser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detailorder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detailorder.Designer.cs">
+      <DependentUpon>detailorder.cs</DependentUpon>
+    </Compile>
     <Compile Include="formutama.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,15 +94,27 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="order.Designer.cs">
+      <DependentUpon>order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="futama.cs">
+    <Compile Include="report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="futama.Designer.cs">
-      <DependentUpon>futama.cs</DependentUpon>
+    <Compile Include="report.Designer.cs">
+      <DependentUpon>report.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="datauser.resx">
+      <DependentUpon>datauser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formutama.resx">
+      <DependentUpon>formutama.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>

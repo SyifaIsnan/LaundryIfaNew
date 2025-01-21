@@ -16,6 +16,7 @@ namespace LaundryIfaNew
         public login()
         {
             InitializeComponent();
+
         }
 
         SqlConnection conn = Properti.conn;
