@@ -75,7 +75,7 @@
             // lOGINToolStripMenuItem
             // 
             this.lOGINToolStripMenuItem.Name = "lOGINToolStripMenuItem";
-            this.lOGINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lOGINToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.lOGINToolStripMenuItem.Text = "LOGIN";
             this.lOGINToolStripMenuItem.Click += new System.EventHandler(this.lOGINToolStripMenuItem_Click);
             // 
@@ -84,11 +84,12 @@
             this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
             this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lOGOUTToolStripMenuItem.Text = "LOGOUT";
+            this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             // 
             // dATAToolStripMenuItem
@@ -105,20 +106,23 @@
             // pETUGASToolStripMenuItem
             // 
             this.pETUGASToolStripMenuItem.Name = "pETUGASToolStripMenuItem";
-            this.pETUGASToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.pETUGASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pETUGASToolStripMenuItem.Text = "PETUGAS";
+            this.pETUGASToolStripMenuItem.Click += new System.EventHandler(this.pETUGASToolStripMenuItem_Click);
             // 
             // pELANGGANToolStripMenuItem
             // 
             this.pELANGGANToolStripMenuItem.Name = "pELANGGANToolStripMenuItem";
-            this.pELANGGANToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.pELANGGANToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pELANGGANToolStripMenuItem.Text = "PELANGGAN";
+            this.pELANGGANToolStripMenuItem.Click += new System.EventHandler(this.pELANGGANToolStripMenuItem_Click);
             // 
             // lAYANANToolStripMenuItem
             // 
             this.lAYANANToolStripMenuItem.Name = "lAYANANToolStripMenuItem";
-            this.lAYANANToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.lAYANANToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lAYANANToolStripMenuItem.Text = "LAYANAN";
+            this.lAYANANToolStripMenuItem.Click += new System.EventHandler(this.lAYANANToolStripMenuItem_Click);
             // 
             // uSERToolStripMenuItem
             // 
@@ -132,6 +136,7 @@
             this.bIAYATAMBAHANToolStripMenuItem.Name = "bIAYATAMBAHANToolStripMenuItem";
             this.bIAYATAMBAHANToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.bIAYATAMBAHANToolStripMenuItem.Text = "BIAYA TAMBAHAN";
+            this.bIAYATAMBAHANToolStripMenuItem.Click += new System.EventHandler(this.bIAYATAMBAHANToolStripMenuItem_Click);
             // 
             // tRANSACTIONToolStripMenuItem
             // 
@@ -145,13 +150,14 @@
             // oRDERToolStripMenuItem
             // 
             this.oRDERToolStripMenuItem.Name = "oRDERToolStripMenuItem";
-            this.oRDERToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.oRDERToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oRDERToolStripMenuItem.Text = "ORDER";
+            this.oRDERToolStripMenuItem.Click += new System.EventHandler(this.oRDERToolStripMenuItem_Click);
             // 
             // dETAILORDERToolStripMenuItem
             // 
             this.dETAILORDERToolStripMenuItem.Name = "dETAILORDERToolStripMenuItem";
-            this.dETAILORDERToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.dETAILORDERToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dETAILORDERToolStripMenuItem.Text = "DETAILORDER";
             // 
             // rEPORTToolStripMenuItem

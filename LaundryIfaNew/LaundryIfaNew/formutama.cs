@@ -44,5 +44,46 @@ namespace LaundryIfaNew
             datauser user = new datauser();
             user.ShowDialog();
         }
+
+        private void pETUGASToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            datapetugas datapetugas = new datapetugas();
+            datapetugas.ShowDialog();
+        }
+
+        private void pELANGGANToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            datapelanggan dp = new datapelanggan();
+            dp.ShowDialog();
+        }
+
+        private void lAYANANToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layanan an = new layanan();
+            an.Show();
+        }
+
+        private void bIAYATAMBAHANToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            biayatambahan bt = new biayatambahan(); 
+            bt.Show();
+        }
+
+        private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var mess = MessageBox.Show("Apakah anda yakin ingin logout?", "Question", MessageBoxButtons.YesNo);
+            if (mess == DialogResult.Yes)
+            {
+                this.Hide();
+                login login = new login();  
+                login.ShowDialog();
+            }
+        }
+
+        private void oRDERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            order o = new order();
+            o.Show();
+        }
     }
 }

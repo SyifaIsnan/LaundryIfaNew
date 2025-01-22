@@ -259,11 +259,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(787, 156);
             this.dataGridView1.TabIndex = 48;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(756, 555);
+            this.textBox7.Location = new System.Drawing.Point(756, 628);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(220, 20);
             this.textBox7.TabIndex = 47;
@@ -271,7 +272,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(756, 516);
+            this.textBox6.Location = new System.Drawing.Point(756, 589);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(220, 20);
             this.textBox6.TabIndex = 46;
@@ -279,7 +280,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(756, 631);
+            this.textBox5.Location = new System.Drawing.Point(756, 555);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(220, 20);
             this.textBox5.TabIndex = 45;
@@ -287,7 +288,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(756, 592);
+            this.textBox4.Location = new System.Drawing.Point(756, 516);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(220, 20);
             this.textBox4.TabIndex = 44;
@@ -295,6 +296,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(756, 274);
             this.comboBox2.Name = "comboBox2";

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,31 @@ namespace LaundryIfaNew
 {
     public partial class layanan : Form
     {
-        public layanan()
+        private string kodeorder;
+
+        public layanan(string kodeorder)
         {
             InitializeComponent();
+
+            this.kodeorder = kodeorder;
+            tampildata();
+
+            SqlCommand cmd = new SqlCommand("SELECT kodelayanan , namalayanan FROM Layanan", conn);
+            cmd.CommandType = CommandType.Text;
+            conn.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+
+            comboBox1.DataSource = dt;
+            comboBox1.DisplayMember = "namalayanan";
+            comboBox1.ValueMember = "kodelayanan";
+            comboBox1.SelectedIndex = -1;
+
+            conn.Close();
         }
+
+        SqlConnection conn = Properti.conn;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

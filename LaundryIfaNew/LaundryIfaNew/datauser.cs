@@ -32,28 +32,26 @@ namespace LaundryIfaNew
                     MessageBox.Show("Data yang ingin diinput tidak boleh kosong!");
                 } else
                 {
-                    SqlCommand cmd = new SqlCommand("insert into [User] (namauser, email, password) values (@namauser, @email, @password)", conn);
-                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO [User] VALUES(@namauser,@email,@password)", conn);
                     cmd.CommandType = CommandType.Text;
+                    conn.Open();
                     cmd.Parameters.AddWithValue("@namauser", textBox1.Text);
                     cmd.Parameters.AddWithValue("@email", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@password", textBox3.Text);
+                    cmd.Parameters.AddWithValue("@password", Properti.enkripsi(textBox3.Text));
+                    //cmd.Parameters.AddWithValue("@password", textBox3.Text);
                     cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Data berhasil ditambahkan!");
-                    tampildata();
-                    clear();
                     conn.Close();
+                    tampildata();
+                    MessageBox.Show("Data berhasil ditambahkan", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clear();
                 }
             } 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                conn.Close() ;
             }
-            finally
-            {
-                conn.Close(); 
-            }
+           
         }
 
         //untuk menghapus
@@ -98,7 +96,7 @@ namespace LaundryIfaNew
                 {
                     var row = dataGridView1.CurrentRow;
                     int kodeuser = Convert.ToInt32(row.Cells["kodeuser"].Value.ToString());
-                    SqlCommand cmd = new SqlCommand("update [User] set namauser=@namauser, email=@email, password=@password)", conn);
+                    SqlCommand cmd = new SqlCommand("update [User] set namauser=@namauser, email=@email, password=@password where kodeuser=@kodeuser", conn);
                     conn.Open();
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@kodeuser", kodeuser);
@@ -116,11 +114,9 @@ namespace LaundryIfaNew
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
                 conn.Close();
             }
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -135,12 +131,39 @@ namespace LaundryIfaNew
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Properti.validasi(this.Controls))
+                {
+                    MessageBox.Show("Data yang ingin diinput tidak boleh kosong!");
+                }
+                else
+                {
+                    var row = dataGridView1.CurrentRow;
+                    int kodeuser = Convert.ToInt32(row.Cells["kodeuser"].Value.ToString());
+                    SqlCommand cmd = new SqlCommand("delete from [User] where kodeuser = @kodeuser", conn);
+                    conn.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@kodeuser", kodeuser);
+                    cmd.ExecuteNonQuery();
 
+                    MessageBox.Show("Data berhasil dihapus!");
+                    tampildata();
+                    clear();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close() ;
+            }
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

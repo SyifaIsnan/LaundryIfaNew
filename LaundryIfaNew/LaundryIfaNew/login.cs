@@ -45,7 +45,7 @@ namespace LaundryIfaNew
                         conn.Open();
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddWithValue("@email", textBox1.Text);
-                        cmd.Parameters.AddWithValue("@password", textBox2.Text);
+                        cmd.Parameters.AddWithValue("@password", Properti.enkripsi(textBox2.Text));
                         SqlDataReader rd = cmd.ExecuteReader();
                         if (rd.Read())
                         {
@@ -58,7 +58,7 @@ namespace LaundryIfaNew
                         {
                             MessageBox.Show("Data tidak ditemukan!");
                         }
-                        cmd.ExecuteNonQuery();
+                        
                         conn.Close();
                     }   
                 }
@@ -66,6 +66,7 @@ namespace LaundryIfaNew
             catch (Exception ex) 
             {
                MessageBox.Show(ex.Message);
+                conn.Close();
             }
         }
     }

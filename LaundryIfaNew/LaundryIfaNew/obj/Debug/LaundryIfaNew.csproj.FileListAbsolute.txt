@@ -11,3 +11,12 @@ D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.pdb
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.login.resources
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.formutama.resources
 D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.datauser.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.biayatambahan.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.datalayanan.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.datapelanggan.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.datapetugas.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.detailorder.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.layanan.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.order.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.print.resources
+D:\Project\LaundryIfaNew\LaundryIfaNew\LaundryIfaNew\obj\Debug\LaundryIfaNew.report.resources
