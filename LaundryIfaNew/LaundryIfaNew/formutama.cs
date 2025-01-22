@@ -59,7 +59,7 @@ namespace LaundryIfaNew
 
         private void lAYANANToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            layanan an = new layanan();
+            datalayanan an = new datalayanan();
             an.Show();
         }
 
@@ -83,6 +83,12 @@ namespace LaundryIfaNew
         private void oRDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
             order o = new order();
+            o.Show();
+        }
+
+        private void dETAILORDERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            detailorder o = new detailorder();
             o.Show();
         }
     }

@@ -271,18 +271,78 @@ namespace LaundryIfaNew
             var mess = MessageBox.Show("Apakah anda yakin ingin membatalkan pesanan?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (mess == DialogResult.Yes)
             {
-                
+                clear();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            var mess = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (mess == DialogResult.Yes)
+            {
+                var row = dataGridView1.CurrentRow.Cells;
+                int kodeorder = Convert.ToInt32(row["kodeorder"].Value.ToString());
+                SqlCommand cmd = new SqlCommand("delete from [Order] where kodeorder=@kodeorder", conn);
+                cmd.CommandType = CommandType.Text;
+                conn.Open();
+                cmd.Parameters.AddWithValue("@kodeorder", kodeorder);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                tampildata();
+                MessageBox.Show("Data berhasil dihapus", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clear();
+                hitungtotal();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                SqlCommand pelanggan = new SqlCommand("select count(*) from [pelanggan] where nomortelepon = @nomortelepon", conn);
+                pelanggan.CommandType = CommandType.Text;
+                conn.Open();
+                pelanggan.Parameters.AddWithValue("@nomortelepon", textBox1.Text);
+                int nomorpelanggan = (int)pelanggan.ExecuteScalar();
+                conn.Close();
+                if (nomorpelanggan == 0)
+                {
+                    SqlCommand tambahpelanggan = new SqlCommand("insert into pelanggan values (@nomortelepon, @nama, @alamat)", conn);
+                    tambahpelanggan.CommandType = CommandType.Text;
+                    conn.Open();
+                    tambahpelanggan.Parameters.AddWithValue("@nomortelepon", textBox1.Text);
+                    tambahpelanggan.Parameters.AddWithValue("@nama", textBox2.Text);
+                    tambahpelanggan.Parameters.AddWithValue("@alamat", richTextBox1.Text);
+                    conn.Close();
+                }
+
+                var row = dataGridView1.CurrentRow.Cells;
+                int kodeorder = Convert.ToInt32(row["kodeorder"].Value.ToString());
+                SqlCommand cmd = new SqlCommand("update [Order] set nomortelepon=@nomortelepon, tanggalorder=@tanggalorder, tanggalselesai=@tanggalselesai, biayaantar=@biayaantar, biayajemput=@biayajemput, biayahari=@biayahari, petugasantar=@petugasantar where kodeorder=@kodeorder", conn);
+                cmd.CommandType = CommandType.Text;
+                conn.Open();
+                cmd.Parameters.AddWithValue("@kodeorder", kodeorder);
+                cmd.Parameters.AddWithValue("@nomortelepon", textBox1.Text);
+                cmd.Parameters.AddWithValue("@tanggalorder", dateTimePicker1.Value);
+                cmd.Parameters.AddWithValue("@tanggalselesai", dateTimePicker2.Value);
+                cmd.Parameters.AddWithValue("@biayaantar", textBox5.Text);
+                cmd.Parameters.AddWithValue("@biayajemput", textBox4.Text);
+                cmd.Parameters.AddWithValue("@biayahari", textBox6.Text);
+                cmd.Parameters.AddWithValue("@petugasantar", comboBox2.SelectedValue);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                tampildata();
+                MessageBox.Show("Data berhasil diubah", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clear();
+                hitungtotal();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -349,7 +409,12 @@ namespace LaundryIfaNew
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.ColumnIndex == 9 && e.RowIndex >= 0)
+            {
+                string kodeorder = dataGridView1.Rows[e.RowIndex].Cells["kodeorder"].Value.ToString();
+                layanan dt = new layanan(kodeorder);
+                dt.ShowDialog();
+            }
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
