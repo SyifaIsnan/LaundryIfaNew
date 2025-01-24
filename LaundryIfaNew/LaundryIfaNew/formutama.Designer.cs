@@ -150,14 +150,14 @@
             // oRDERToolStripMenuItem
             // 
             this.oRDERToolStripMenuItem.Name = "oRDERToolStripMenuItem";
-            this.oRDERToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oRDERToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.oRDERToolStripMenuItem.Text = "ORDER";
             this.oRDERToolStripMenuItem.Click += new System.EventHandler(this.oRDERToolStripMenuItem_Click);
             // 
             // dETAILORDERToolStripMenuItem
             // 
             this.dETAILORDERToolStripMenuItem.Name = "dETAILORDERToolStripMenuItem";
-            this.dETAILORDERToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dETAILORDERToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.dETAILORDERToolStripMenuItem.Text = "DETAILORDER";
             this.dETAILORDERToolStripMenuItem.Click += new System.EventHandler(this.dETAILORDERToolStripMenuItem_Click);
             // 
@@ -166,6 +166,7 @@
             this.rEPORTToolStripMenuItem.Name = "rEPORTToolStripMenuItem";
             this.rEPORTToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.rEPORTToolStripMenuItem.Text = "REPORT";
+            this.rEPORTToolStripMenuItem.Click += new System.EventHandler(this.rEPORTToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 

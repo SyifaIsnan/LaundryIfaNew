@@ -157,7 +157,7 @@ namespace LaundryIfaNew
                 SqlCommand cmd = new SqlCommand("UPDATE Detailorder SET kodeorder=@kodeorder, kodelayanan = @kodelayanan, jumlahunit = @jumlahunit , biaya = @biaya WHERE kodeorder= @kodeorder", conn);
                 cmd.CommandType = CommandType.Text;
                 conn.Open();
-                cmd.Parameters.AddWithValue("@kodeorder", textBox2.Text);
+                cmd.Parameters.AddWithValue("@kodeorder", kodeorder);
                 cmd.Parameters.AddWithValue("@kodelayanan", comboBox1.SelectedValue);
                 cmd.Parameters.AddWithValue("@jumlahunit", numericUpDown1.Value);
                 cmd.Parameters.AddWithValue("@biaya", textBox4.Text);

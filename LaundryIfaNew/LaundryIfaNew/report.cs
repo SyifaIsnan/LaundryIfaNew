@@ -75,39 +75,61 @@ namespace LaundryIfaNew
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Ambil bulan awal dan bulan akhir dari ComboBox
             string from = comboBox1.SelectedItem.ToString();
             string to = comboBox2.SelectedItem.ToString();
-            SqlCommand cmd = new SqlCommand("SELECT MONTH([Order].tanggalorder) AS 'Bulan', sum(jumlahunit*biaya) AS 'Income' FROM [Order] INNER JOIN Detailorder ON [Order].kodeorder = Detailorder.kodeorder WHERE tanggalorder >= @from AND tanggalorder <= @to GROUP BY MONTH(tanggalorder)", conn);
-            cmd.CommandType = CommandType.Text;
-            conn.Open();
+
+            // Query untuk menghitung pendapatan per bulan
+            string query = "SELECT MONTH([Order].tanggalorder) AS Bulan, SUM(jumlahunit * biaya) AS Income " +
+                           "FROM [Order] " +
+                           "INNER JOIN Detailorder ON [Order].kodeorder = Detailorder.kodeorder " +
+                           "WHERE tanggalorder >= @from AND tanggalorder <= @to " +
+                           "GROUP BY MONTH(tanggalorder)";
+
+            // Buat command SQL dan tambahkan parameter
+            SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@from", new DateTime(DateTime.Now.Year, DateTime.ParseExact(from, "MMMM", CultureInfo.CurrentCulture).Month, 1));
             cmd.Parameters.AddWithValue("@to", new DateTime(DateTime.Now.Year, DateTime.ParseExact(to, "MMMM", CultureInfo.CurrentCulture).Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.ParseExact(to, "MMMM", CultureInfo.CurrentCulture).Month)));
+
+            // Eksekusi query dan muat data ke DataTable
+            conn.Open();
             DataTable dt = new DataTable();
-            SqlDataReader dr = cmd.ExecuteReader();
-            dt.Load(dr);
+            dt.Load(cmd.ExecuteReader());
             conn.Close();
+
+            // Tampilkan data di DataGridView
             dataGridView1.DataSource = dt.AsEnumerable().Select(d => new
             {
                 Bulan = new DateTime(DateTime.Now.Year, d.Field<int>("Bulan"), 1).ToString("MMMM"),
                 Income = d.Field<int>("Income").ToString("C", CultureInfo.GetCultureInfo("id-ID")),
             }).ToList();
 
-
+            // Tambahkan data ke chart
             chart1.Series.Clear();
+            var series = chart1.Series.Add("Pendapatan");
+            series.ChartType = SeriesChartType.Column;
+
             foreach (DataRow row in dt.Rows)
             {
-                string bulan = new DateTime(DateTime.Now.Year, row.Field<int>("Bulan"), 1).ToString("MMMM");
-                int income = row.Field<int>("Income");
+                // Cek apakah bulan valid (1-12)
+                int bulanNumber = row.Field<int>("Bulan");
+                string bulan = string.Empty;
 
-
-                if (chart1.Series.IndexOf("Pendapatan") == -1)
+                if (bulanNumber >= 1 && bulanNumber <= 12)
                 {
-                    chart1.Series.Add("Pendapatan");
-                    chart1.Series["Pendapatan"].ChartType = SeriesChartType.Column;
+                    bulan = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(bulanNumber); // Mengonversi angka bulan menjadi nama bulan
+                }
+                else
+                {
+                    bulan = "Bulan Tidak Valid"; // Menangani kasus jika bulan tidak valid
                 }
 
-                chart1.Series["Pendapatan"].Points.AddXY(bulan, income);
+                int income = row.Field<int>("Income");
+
+                // Tambahkan data ke chart
+                series.Points.AddXY(bulan, income);
             }
+
 
         }
     }

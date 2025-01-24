@@ -115,35 +115,38 @@ namespace LaundryIfaNew
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
+            using (var konek = Properti.konek())
             {
-                if (Properti.validasi(this.Controls))
+                try
                 {
-                    MessageBox.Show("Inputan tidak boleh kosong!");
-                }
-                else
-                {
-                    var row = dataGridView1.CurrentRow.Cells;
-                    int kodebiaya = Convert.ToInt32(row["kodebiaya"].Value.ToString());
-                    SqlCommand cmd = new SqlCommand("delete from [Biayatambahan] where kodebiaya = @kodebiaya", conn);
-                    cmd.CommandType = CommandType.Text;
-                    conn.Open();
-                    cmd.Parameters.AddWithValue("@kodebiaya", kodebiaya);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Data berhasil dihapus!");
-                    clear();
-                    tampildata();
-                    conn.Close();
+                    if (Properti.validasi(this.Controls))
+                    {
+                        MessageBox.Show("Inputan tidak boleh kosong!");
+                    }
+                    else
+                    {
+                        var row = dataGridView1.CurrentRow.Cells;
+                        int kodebiaya = Convert.ToInt32(row["kodebiaya"].Value.ToString());
+                        SqlCommand cmd = new SqlCommand("delete from [Biayatambahan] where kodebiaya = @kodebiaya", conn);
+                        cmd.CommandType = CommandType.Text;
+                        conn.Open();
+                        cmd.Parameters.AddWithValue("@kodebiaya", kodebiaya);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data berhasil dihapus!");
+                        clear();
+                        tampildata();
+                        conn.Close();
 
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
 

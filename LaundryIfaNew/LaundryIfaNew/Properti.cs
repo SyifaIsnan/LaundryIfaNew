@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LaundryIfaNew
 {
@@ -14,13 +15,19 @@ namespace LaundryIfaNew
         //koneksi
         public static SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-18L8S2S;Initial Catalog=LaundrySyifa;Integrated Security=True");
 
+
+        public static SqlConnection konek() 
+        { 
+            return new SqlConnection(@"Data Source=DESKTOP-18L8S2S;Initial Catalog=LaundrySyifa;Integrated Security=True"); 
+        }
+
         //vaidasi
-        public static bool validasi(Control.ControlCollection container, TextBoxBase kosong = null)
+        public static bool validasi(Control.ControlCollection controls, TextBoxBase kosong = null)
         {
-            foreach (Control c in container)
+            foreach (Control c in controls)
             {
-                if (c is TextBoxBase textBox && string.IsNullOrEmpty(textBox.Text) && textBox != kosong) 
-                { 
+                if (c is TextBoxBase textBox && string.IsNullOrWhiteSpace(textBox.Text) && textBox != kosong)
+                {
                     return true;
                 }
             } return false;

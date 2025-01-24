@@ -91,5 +91,11 @@ namespace LaundryIfaNew
             detailorder o = new detailorder();
             o.Show();
         }
+
+        private void rEPORTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            report report = new report();
+            report.Show();
+        }
     }
 }
