@@ -79,15 +79,12 @@ namespace LaundryIfaNew
             string from = comboBox1.SelectedItem.ToString();
             string to = comboBox2.SelectedItem.ToString();
 
-            // Query untuk menghitung pendapatan per bulan
-            string query = "SELECT MONTH([Order].tanggalorder) AS Bulan, SUM(jumlahunit * biaya) AS Income " +
+            // Buat command SQL dan tambahkan parameter
+            SqlCommand cmd = new SqlCommand("SELECT MONTH([Order].tanggalorder) AS Bulan, SUM(jumlahunit * biaya) AS Income " +
                            "FROM [Order] " +
                            "INNER JOIN Detailorder ON [Order].kodeorder = Detailorder.kodeorder " +
                            "WHERE tanggalorder >= @from AND tanggalorder <= @to " +
-                           "GROUP BY MONTH(tanggalorder)";
-
-            // Buat command SQL dan tambahkan parameter
-            SqlCommand cmd = new SqlCommand(query, conn);
+                           "GROUP BY MONTH(tanggalorder)", conn);
             cmd.Parameters.AddWithValue("@from", new DateTime(DateTime.Now.Year, DateTime.ParseExact(from, "MMMM", CultureInfo.CurrentCulture).Month, 1));
             cmd.Parameters.AddWithValue("@to", new DateTime(DateTime.Now.Year, DateTime.ParseExact(to, "MMMM", CultureInfo.CurrentCulture).Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.ParseExact(to, "MMMM", CultureInfo.CurrentCulture).Month)));
 
@@ -98,7 +95,7 @@ namespace LaundryIfaNew
             conn.Close();
 
             // Tampilkan data di DataGridView
-            dataGridView1.DataSource = dt.AsEnumerable().Select(d => new
+             dataGridView1.DataSource = dt.AsEnumerable().Select(d => new
             {
                 Bulan = new DateTime(DateTime.Now.Year, d.Field<int>("Bulan"), 1).ToString("MMMM"),
                 Income = d.Field<int>("Income").ToString("C", CultureInfo.GetCultureInfo("id-ID")),
@@ -106,7 +103,7 @@ namespace LaundryIfaNew
 
             // Tambahkan data ke chart
             chart1.Series.Clear();
-            var series = chart1.Series.Add("Pendapatan");
+            var series = chart1.Series.Add("Pendapatan"); 
             series.ChartType = SeriesChartType.Column;
 
             foreach (DataRow row in dt.Rows)
